@@ -1,0 +1,74 @@
+{
+  "name": "tuya-adapter",
+  "display_name": "Tuya adapter",
+  "version": "0.0.1",
+  "description": "Tuya adapter add-on for Mozilla IoT Gateway",
+  "author": "CrabeMan",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "mozilla",
+    "iot",
+    "adapter",
+    "tuya"
+  ],
+  "homepage": "https://github.com/CrabeMan/tuya-adapter-mozilla-iot",
+  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CrabeMan/tuya-adapter-mozilla-iot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CrabeMan/tuya-adapter-mozilla-iot/issues"
+  },
+  "dependencies": {
+    "tuyapi": "^5.1.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0"
+  },
+  "files": [
+    "LICENSE",
+    "SHA256SUMS",
+    "lib/tuya-adapter.js",
+    "lib/tuya-device.js",
+    "lib/tuya-property.js",
+    "index.js"
+  ],
+  "moziot": {
+    "api": {
+      "min": 2,
+      "max": 2
+    },
+    "plugin": true,
+    "exec": "{nodeLoader} {path}",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "devices": {
+          "type": "array",
+          "description": "Add or delete your Tuya devices.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "ip": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
